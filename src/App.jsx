@@ -79,6 +79,7 @@ import Pages2 from '../component/Pages2';
 import Signup from '../pages/Signup';
 import Login from "../pages/Login";
 import Forgotten from '../pages/Forgotten';
+import Resetpassword from '../pages/Resetpassword';
 
 
 
@@ -172,6 +173,8 @@ const App = () => {
                                                  <Route path="/Signup" element={<Signup/>}/>
                                                   <Route path="/Login" element={<Login/>}/>
                                                   <Route path="/Forgotten" element={<Forgotten/>}/>
+                                                  <Route path="/Resetpassword" element={<Resetpassword />} />
+
       </Routes>
     </Router>
   )

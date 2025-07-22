@@ -11,15 +11,62 @@ const Book2 = () => {
     message: '',
   });
 
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Booking Data:', formData);
-    // Add form submission logic here (API call or alert)
+
+    setError('');
+    setSuccess('');
+
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phoneNumber: formData.phone.trim(),
+      numberOfPersons: parseInt(formData.guests),
+      reservationDate: formData.date,
+      reservationTime: formData.time,
+      specialRequest: formData.message.trim(),
+      message: formData.message.trim(),
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/food/createReservation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setSuccess('🎉 Reservation successful!');
+      setFormData({
+        guests: '',
+        date: '',
+        time: '',
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+
+      setTimeout(() => setSuccess(''), 5000);
+    } catch (err) {
+      setError(err.message || 'Failed to book reservation');
+      setTimeout(() => setError(''), 5000);
+    }
   };
 
   return (
@@ -28,16 +75,24 @@ const Book2 = () => {
         onSubmit={handleSubmit}
         className="w-full max-w-screen-md p-6 bg-gray-900 rounded-lg shadow-lg space-y-6"
       >
+        {/* Alerts */}
+        {success && (
+          <div className="bg-green-700 text-white px-4 py-2 rounded">{success}</div>
+        )}
+        {error && (
+          <div className="bg-red-700 text-white px-4 py-2 rounded">{error}</div>
+        )}
+
         {/* Row 1 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div>
-            <label className="block mb-1 font-semibold">Number of Guest*</label>
+            <label className="block mb-1 font-semibold">Number of Guests*</label>
             <input
               type="number"
               name="guests"
               value={formData.guests}
               onChange={handleChange}
-              placeholder="Person"
+              placeholder="e.g., 2"
               required
               className="w-full p-2 bg-gray-800 border border-gray-700 rounded"
             />
@@ -75,7 +130,7 @@ const Book2 = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Person"
+              placeholder="Full Name"
               required
               className="w-full p-2 bg-gray-800 border border-gray-700 rounded"
             />
@@ -87,7 +142,7 @@ const Book2 = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Person"
+              placeholder="you@example.com"
               required
               className="w-full p-2 bg-gray-800 border border-gray-700 rounded"
             />
@@ -99,7 +154,7 @@ const Book2 = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Person"
+              placeholder="+234..."
               required
               className="w-full p-2 bg-gray-800 border border-gray-700 rounded"
             />
