@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import sec2 from '../src/assets/images/magic-mary-nEOzmjguwO0-unsplash.jpg';
-import sec3 from '../src/assets/images/emmanuel-ben-paul-grFZoxvKSvE-unsplash.jpg';
-import sec4 from '../src/assets/images/lucas-verbeke-EOp98PHIFXQ-unsplash.jpg';
+
+// Use image URLs directly
+const images = [
+  'https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403357/magic-mary-nEOzmjguwO0-unsplash_ou57ql.jpg',
+  'https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403349/emmanuel-ben-paul-grFZoxvKSvE-unsplash_hbcxdl.jpg',
+  'https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403359/lucas-verbeke-EOp98PHIFXQ-unsplash_wpdvhi.jpg'
+];
 
 const Section1 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [sec2, sec3, sec4];
 
   return (
     <section className="relative bg-slate-600 text-white min-h-screen flex flex-col justify-center items-center overflow-hidden">
-
       {/* Background slider */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <div 
@@ -24,7 +26,7 @@ const Section1 = () => {
                 alt={`Slide ${idx + 1}`} 
                 className="w-full h-full object-cover"
               />
-              {/* Dark mode overlay on each image */}
+              {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/40"></div>
             </div>
           ))}
@@ -39,9 +41,9 @@ const Section1 = () => {
         <p className="text-xs tracking-widest">OPENING HOURS: 18:00 - 02:00</p>
       </div>
 
-      {/* Center text content */}
+      {/* Text content */}
       <div className="relative z-10 text-center space-y-4 px-4">
-        <h2 className="text-sm sm:text-lg font-semibold  md:text-4xl tracking-wider">THE GREAT</h2>
+        <h2 className="text-sm sm:text-lg font-semibold md:text-4xl tracking-wider">THE GREAT</h2>
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-wide">FLAVORED FOOD</h1>
         <h3 className="text-sm sm:text-lg font-semibold tracking-wider">PART OF US</h3>
         <div className="flex justify-center items-center space-x-4 mt-2">
@@ -65,7 +67,7 @@ const Section1 = () => {
         ))}
       </div>
 
-      {/* Outer border */}
+      {/* Decorative border */}
       <div className="absolute inset-2 sm:inset-4 border border-gray-700 pointer-events-none z-10"></div>
     </section>
   );

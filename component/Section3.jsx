@@ -1,9 +1,12 @@
 import React from 'react';
-import sec8 from "../src/assets/images/ibuki-tsubo-kNxQv2d2pGI-unsplash.jpg";
-import sec9 from "../src/assets/images/s-laiba-ali-6fm5j9x20W0-unsplash.jpg";
-import sec10 from "../src/assets/images/zaraq-iqbal-Q0a7fbRA88k-unsplash.jpg";
-import sec11 from "../src/assets/images/image 61.png"
-import sec12 from "../src/assets/images/image 62.png";
+
+const images = [
+  "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403356/ibuki-tsubo-kNxQv2d2pGI-unsplash_sly002.jpg", // sec8 - Party Service
+  "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403358/s-laiba-ali-6fm5j9x20W0-unsplash_qup0vu.jpg",   // sec9 - Buffet Service
+  "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403361/zaraq-iqbal-Q0a7fbRA88k-unsplash_dj4lsp.jpg", // sec10 - Wedding Service
+  "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403351/image_61_dqvxxx.png",                         // sec11 - Right floating vector
+  "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403351/image_62_c6icmi.png"                          // sec12 - Left floating vector
+];
 
 const Section3 = () => {
   return (
@@ -19,15 +22,17 @@ const Section3 = () => {
       </div>
 
       <div className="flex flex-col gap-3 lg:flex-row mx-auto lg:w-[70%] py-6 lg:space-x-6 space-y-6 lg:space-y-0">
-        {/* Wedding Service */}
 
-         <img 
-            src={sec12} 
-            alt="sec2" 
-            className=" hidden lg:flex absolute w-[10%]  left-0 mt-60  -translate-y-1/2 transform -rotate-90 origin-center opacity-80 mr-10" 
-          />
+        {/* Left floating image */}
+        <img 
+          src={images[4]} // sec12
+          alt="decoration-left" 
+          className=" hidden lg:flex absolute w-[10%]  left-0 mt-60  -translate-y-1/2 transform -rotate-90 origin-center opacity-80 mr-10" 
+        />
+
+        {/* Wedding Service */}
         <div className=" bg-yellow-50 w-full sm:w-[90%] lg:w-[80%] mx-auto">
-          <img src={sec10} alt="wedding service" className="w-[95%] h-45 mx-auto mt-3 object-cover "/>
+          <img src={images[2]} alt="wedding service" className="w-[95%] h-45 mx-auto mt-3 object-cover "/>
           <h1 className="px-5 font-bold text-lg lg:text-1xl py-3">WEDDING SERVICE</h1>
           <p className="px-3 font-thin py-2">
             The chocolate fondant which did not disappoint. It was rich and indulgent,
@@ -44,7 +49,7 @@ const Section3 = () => {
 
         {/* Buffet Service */}
         <div className=" bg-yellow-50 w-full sm:w-[90%] lg:w-[80%] mx-auto">
-          <img src={sec9} alt="buffet service" className="w-[95%] mx-auto mt-3 object-cover" />
+          <img src={images[1]} alt="buffet service" className="w-[95%] mx-auto mt-3 object-cover" />
           <h1 className="px-5 font-bold text-lg lg:text-1xl py-3">BUFFET SERVICE</h1>
           <p className="px-3 font-thin py-2">
             Assertively myocardinate robust e-tailers for extensible human capital.
@@ -61,7 +66,7 @@ const Section3 = () => {
 
         {/* Party Service */}
         <div className=" bg-yellow-50 w-full sm:w-[90%] lg:w-[80%] mx-auto">
-          <img src={sec8} alt="party service" className="w-[95%] mx-auto mt-3 object-cover" />
+          <img src={images[0]} alt="party service" className="w-[95%] mx-auto mt-3 object-cover" />
           <h1 className="px-5 font-bold text-lg lg:text-1xl py-3">PARTY SERVICE</h1>
           <p className="px-3 font-extralight py-2">
             Assertively myocardinate robust e-tailers for extensible human capital.
@@ -76,11 +81,12 @@ const Section3 = () => {
           </div>
         </div>
 
-          <img 
-            src={sec11} 
-            alt="sec2" 
-            className=" sm:block absolute right-0 mt-5  -translate-y-1/2 transform rotate-90 origin-center opacity-60 w-40" 
-          />
+        {/* Right floating image */}
+        <img 
+          src={images[3]} // sec11
+          alt="decoration-right" 
+          className=" sm:block absolute right-0 mt-5  -translate-y-1/2 transform rotate-90 origin-center opacity-60 w-40" 
+        />
       </div>
     </div>
   );

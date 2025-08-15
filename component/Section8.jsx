@@ -1,9 +1,10 @@
 import React from 'react';
-import sec27 from "../src/assets/images/aditya-romansa-m6p4lqWxfy0-unsplash.jpg";
-import sec28 from "../src/assets/images/fotos-DpPYTMWYnkY-unsplash.jpg";
-import sec29 from "../src/assets/images/jonathan-borba-c7aDFxMKv4o-unsplash.jpg";
 
 const Section8 = () => {
+  const sec27 = "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403349/fotos-DpPYTMWYnkY-unsplash_bzav10.jpg";
+  const sec28 = "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403349/fotos-DpPYTMWYnkY-unsplash_bzav10.jpg";
+  const sec29 = "https://res.cloudinary.com/ddsce1fpd/image/upload/v1753403349/fotos-DpPYTMWYnkY-unsplash_bzav10.jpg";
+
   return (
     <div className="relative bg-white">
       {/* Header */}
