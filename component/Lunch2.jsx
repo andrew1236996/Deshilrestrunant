@@ -19,14 +19,14 @@ const Lunch2 = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleCart = () => setShowCart(!showCart);
 
-  const {
+ const {
     cart,
     addToCart,
     removeFromCart,
     decreaseQuantity,
     total,
     count: cartCount,
-  } = useContext({ CartContext });
+  } = useContext(CartContext);
 
   const navLinks = [
     { name: 'HOME', to: '/' },
