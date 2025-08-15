@@ -9,7 +9,7 @@ import {
   FaBars,
 } from 'react-icons/fa';
 
-import { useCart } from '../context/CartContext';
+import { CartContext } from '../Context/CartContext';
 import Placeholder from '../src/assets/images/engin-akyurt-v6z8FoqPbJ8-unsplash.jpg';
 
 const Lunch2 = () => {
@@ -26,7 +26,7 @@ const Lunch2 = () => {
     decreaseQuantity,
     total,
     count: cartCount,
-  } = useContext({ useCart });
+  } = useContext({ CartContext });
 
   const navLinks = [
     { name: 'HOME', to: '/' },
